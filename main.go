@@ -2,6 +2,7 @@ package main
 
 import (
 	"Streaming/src/core"
+	"Streaming/src/core/cache"
 
 	peliculaDeps "Streaming/src/peliculas/infrastructure"
 	peliculaRoutes "Streaming/src/peliculas/infrastructure/routes"
@@ -18,6 +19,9 @@ import (
 func main() {
 	// Conexión a la base de datos
 	core.ConnectToDataBase()
+
+	// Inicializar caché
+	cache.InitCache() // Inicializa el caché
 
 	// Inicializar dependencias
 	users := userDeps.InitUserDependencies()
